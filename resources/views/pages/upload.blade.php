@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layout.auth')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Upload Roadtanker Details</div>
                 <div class="panel-body">
-                {!! Form::open(array('route' => 'roadtanker.import', 'method' => 'POST' , 'files' => 'true'))  !!}    
+                {!! Form::open(array('route' => 'admin.roadtanker.import', 'method' => 'POST' , 'files' => 'true'))  !!}    
                         <div class="row">
                             <div class="col-md-10"> 
                                 @if(Session::has('success'))
@@ -34,9 +34,9 @@
 
                         <divc class="row">
                             <div class="col-md-12">
-                                <a class="btn btn-primary" href="{{ route('roadtanker.export', ['type' => 'xls']) }}" role="button">Download - Excel xls</a>
-                                <a class="btn btn-primary" href="{{ route('roadtanker.export', ['type' => 'xlsx']) }}" role="button">Download - Excel xlsx</a>
-                                <a class="btn btn-primary" href="{{ route('roadtanker.export', ['type' => 'csv']) }}" role="button">Download - Excel CSV</a>
+                                <a class="btn btn-primary" href="{{ route('admin.roadtanker.export', ['type' => 'xls']) }}" role="button">Download - Excel xls</a>
+                                <a class="btn btn-primary" href="{{ route('admin.roadtanker.export', ['type' => 'xlsx']) }}" role="button">Download - Excel xlsx</a>
+                                <a class="btn btn-primary" href="{{ route('admin.roadtanker.export', ['type' => 'csv']) }}" role="button">Download - Excel CSV</a>
                             </div>
                         </div>
                 </div>

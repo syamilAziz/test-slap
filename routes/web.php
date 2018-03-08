@@ -10,18 +10,54 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PagesController@index');
+Route::get('/services','PagesController@service');
 
-Route::get('/', function () {
+
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
 
-Auth::routes();
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+  Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'AdminAuth\LoginController@login');
+  Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
+  
+  
+  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'AdminAuth\RegisterController@register');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/roadtanker', 'HomeController@roadtanker')->name('pages.roadtanker');
-Route::get('/upload', 'HomeController@upload')->name('pages.upload');
+  Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+});
 
-Route::post('roadtanker-import', 'RoadtankerController@RoadtankerImport')->name('roadtanker.import');
-Route::get('roadtanker-export/{type}', 'RoadtankerController@RoadtankerExport')->name('roadtanker.export');
+Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
+  Route::get('/login', 'EmployeeAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'EmployeeAuth\LoginController@login');
+  Route::post('/logout', 'EmployeeAuth\LoginController@logout')->name('logout');
 
-Route::get('/prai', 'HomeController@prai')->name('terminal.prai');
+  Route::get('/register', 'EmployeeAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'EmployeeAuth\RegisterController@register');
+
+  Route::post('/password/email', 'EmployeeAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'EmployeeAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'EmployeeAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'EmployeeAuth\ResetPasswordController@showResetForm');
+});
+
+Route::group(['prefix' => 'haulier', 'as' => 'haulier.'], function () {
+  Route::get('/login', 'HaulierAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'HaulierAuth\LoginController@login');
+  Route::post('/logout', 'HaulierAuth\LoginController@logout')->name('logout');
+
+  Route::get('/register', 'HaulierAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'HaulierAuth\RegisterController@register');
+
+  Route::post('/password/email', 'HaulierAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'HaulierAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'HaulierAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'HaulierAuth\ResetPasswordController@showResetForm');
+});

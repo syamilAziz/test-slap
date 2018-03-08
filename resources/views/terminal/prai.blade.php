@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('admin.layout.auth')
 @section('content')
 <div class="container">
     <div class="row">
@@ -13,9 +12,9 @@
                    Prai Terminal
                 </div>
 
-                <table class="table">
+                <table class="table table-striped table-hover">
                     <tr>
-                        <th>#</th>
+                        <th><center>#</center></th>
                         <th>Plate</th>
                         <th>Capacity</th>
                         <th>Terminal</th>
@@ -26,7 +25,7 @@
                     <?php $counter = 1; ?>
                     @foreach($prai as $i)
                         <tr>
-                            <td>{{$counter++}}</td>
+                            <td><center>{{$counter++}}</center></td>
                             <td>{{$i->plate}}</td>
                             <td>{{$i->capacity}}</td>
                             <td>{{$i->terminal}}</td>

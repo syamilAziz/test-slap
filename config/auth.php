@@ -36,6 +36,21 @@ return [
     */
 
     'guards' => [
+        'haulier' => [
+            'driver' => 'session',
+            'provider' => 'hauliers',
+        ],
+
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +80,21 @@ return [
     */
 
     'providers' => [
+        'hauliers' => [
+            'driver' => 'eloquent',
+            'model' => App\Haulier::class,
+        ],
+
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Employee::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +122,24 @@ return [
     */
 
     'passwords' => [
+        'hauliers' => [
+            'provider' => 'hauliers',
+            'table' => 'haulier_password_resets',
+            'expire' => 60,
+        ],
+
+        'employees' => [
+            'provider' => 'employees',
+            'table' => 'employee_password_resets',
+            'expire' => 60,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'admin_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

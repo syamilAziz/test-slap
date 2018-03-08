@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layout.auth')
 
 @section('content')
 <div class="container">
@@ -9,10 +9,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">RoadTanker</div>
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ route('pages.upload') }}">Upload</a>
+                    <a class="btn btn-success" href="{{ route('admin.pages.upload') }}">Upload</a>
                 </div>
 
-                <table class="table">
+                <table class="table table-striped">
                     <tr>
                         <th>#</th>
                         <th>Plate</th>

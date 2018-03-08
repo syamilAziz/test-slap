@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Roadtanker;
 use Excel;
 
+
 class RoadtankerController extends Controller
 {
     
@@ -37,6 +38,10 @@ class RoadtankerController extends Controller
 
                     Roadtanker::insert($rt_list);
                     \Session::flash('success' , 'File imported successfully !!');
+                }
+                elseif(empty($rt_list)){                        
+                    Session::flash('error', 'Error inserting the data..');
+                    return back();
                 }
             }
         }else {
