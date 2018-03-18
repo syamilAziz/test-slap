@@ -91,4 +91,9 @@ class HomeController extends Controller
        
         return view('pages.upload');
     }
+
+    public function create()
+    {
+        return view('pages.create');
+    }
 }

@@ -1,7 +1,8 @@
-<?php $url = Request::path();?>
+<?php $route = Request::path();?>
 <div class="col-md-3">
 
-    @if ($url == 'admin/home')
+     @if (Auth::guard('admin')->check())
+    @if ($route == 'admin/home')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item active">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge"></span></a>
@@ -17,7 +18,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/kvdt')
+    @elseif ($route == 'admin/kvdt')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item active">KVDT<span class="badge">{{ $kvdt }}</span></a>
@@ -33,7 +34,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/lumut')
+    @elseif ($route == 'admin/lumut')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -49,7 +50,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/prai')
+    @elseif ($route == 'admin/prai')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -65,7 +66,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/langkawi')
+    @elseif ($route == 'admin/langkawi')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -81,7 +82,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/kuantan')
+    @elseif ($route == 'admin/kuantan')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -97,7 +98,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/kerteh')
+    @elseif ($route == 'admin/kerteh')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -113,7 +114,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/melaka')
+    @elseif ($route == 'admin/melaka')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -129,7 +130,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/pasirgudang')
+    @elseif ($route == 'admin/pasirgudang')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -145,7 +146,7 @@
         <a href="#" class="list-group-item">Hauler</a>
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item">Roadtanker</a>
     </div>
-    @elseif ($url == 'admin/roadtanker')
+    @elseif ($route == 'admin/roadtanker')
     <div class="list-group">
         <a href="{{ route('admin.home') }}" class="list-group-item">Dashboard</a>
         <a href="{{ route('admin.terminal.kvdt') }}" class="list-group-item">KVDT<span class="badge">2</span></a>
@@ -162,4 +163,5 @@
         <a href="{{ route('admin.pages.roadtanker') }}" class="list-group-item active">Roadtanker</a>
     </div>
     @endif
+@endif
 </div>

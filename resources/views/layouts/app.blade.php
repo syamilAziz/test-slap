@@ -34,6 +34,10 @@
     .bs-example{
         margin: 0px;
     }
+    .center {
+    margin: auto;
+    width: 60%;
+    }
     </style>
 
   

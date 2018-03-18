@@ -1,4 +1,4 @@
-<div class="bs-example">
+<div class="bs-example center">
     <div id="myCarousel" class="carousel slide" data-interval="5000" data-ride="carousel">
     	<!-- Carousel indicators -->
         <ol class="carousel-indicators">
@@ -9,7 +9,7 @@
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             <div class="active item">
-                <img src="/storage/slide/81431272954_295x200.jpg" alt="First Slide">
+                <img src="/storage/slide/81431272954_295x200.jpg" width="410px" height="900px" alt="First Slide">
          		<div class="carousel-caption">
                   <h3>COF LOGIN</h3>
                   <a href="{{ url('/admin/login') }}">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/storage/slide/ui-sam.jpg" alt="Second Slide">
+                <img src="/storage/slide/ui-sam.jpg"  height="900px" alt="Second Slide">
                 <div class="carousel-caption">
                   <h3>HAULIER LOGIN</h3>
                   <a href="{{ url('/haulier/login') }}">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/storage/slide/fr-09.jpg" alt="Third Slide">
+                <img src="/storage/slide/fr-09.jpg" height="400px" alt="Third Slide">
                 <div class="carousel-caption">
                   <h3>FOE LOGIN</h3>
                   <a href="{{ url('/employee/login') }}">

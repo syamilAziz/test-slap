@@ -13,6 +13,9 @@ Route::get('/home', function () {
 Route::post('roadtanker-import', 'RoadtankerController@RoadtankerImport')->name('roadtanker.import');
 Route::get('roadtanker-export/{type}', 'RoadtankerController@RoadtankerExport')->name('roadtanker.export');
 
+Route::post('remove_roadtanker', 'RoadtankerController@remove_roadtanker')->name('roadtanker.remove');
+Route::post('store_roadtanker', 'RoadtankerController@store_roadtanker')->name('roadtanker.store');
+
 Route::get('/kvdt', 'HomeController@kvdt')->name('terminal.kvdt');
 Route::get('/lumut', 'HomeController@lumut')->name('terminal.lumut');
 Route::get('/prai', 'HomeController@prai')->name('terminal.prai');
@@ -24,4 +27,4 @@ Route::get('/pasirgudang', 'HomeController@pasirgudang')->name('terminal.pasirgu
 
 Route::get('/roadtanker', 'HomeController@roadtanker')->name('pages.roadtanker');
 Route::get('/upload', 'HomeController@upload')->name('pages.upload');
-
+Route::get('/create', 'HomeController@create')->name('pages.create');

@@ -30,6 +30,10 @@
     @elseif ($url == 'admin/roadtanker')  
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         <li class="active">Roadtanker</li>
+    @elseif ($url == 'admin/create')
+        <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
+        <li><a href="{{ route('admin.pages.roadtanker') }}">Roadtanker</a></li>
+        <li class="active">Create Roadtanker</li>
     @elseif ($url == 'admin/upload')  
         <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
         <li><a href="{{ route('admin.pages.roadtanker') }}">Roadtanker</a></li>

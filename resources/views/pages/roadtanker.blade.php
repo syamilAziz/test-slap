@@ -10,7 +10,9 @@
                 <div class="panel-heading">RoadTanker</div>
                 <div class="panel-body">
                     <a class="btn btn-success" href="{{ route('admin.pages.upload') }}">Upload</a>
+                    <a class="btn btn-primary" href="{{ route('admin.pages.create') }}">Create</a>
                 </div>
+
 
                 <table class="table table-striped">
                     <tr>
@@ -19,6 +21,7 @@
                         <th>Capacity</th>
                         <th>Terminal</th>
                         <th>Hauler</th>
+                        <th>Action</th>
                     </tr>
                 
                 @if(count($roadtankers) > 0)
@@ -38,6 +41,10 @@
                                     ZHA
                                 @endif
                             </td>
+                             
+                            <td><button type="button" class="btn btn-success btn-xs try" id="{{ $roadtanker->id }}">Update</button> <button type="button" class="btn btn-danger btn-xs remove" id="{{ $roadtanker->id }}" >Delete</button></td>
+                                
+                            
                         </tr>
                     @endforeach
                 @else    
@@ -49,4 +56,63 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+
+    // remove-modal
+    $(document).ready(function(){
+        $(".remove").click(function(){
+            
+            var id = $(this).attr('id');
+
+            console.log(id);
+            $('#remove-modal').modal('show');
+            $('#id').val(id);
+            
+        });
+    });
+    $(document).on('submit','.form-remove', function(e){
+        e.preventDefault();
+        
+            $.ajax({
+            type: "POST",
+            url: '{{ route('admin.roadtanker.remove') }}',
+            data: new FormData(this),
+            contentType:false,  
+            processData:false,
+            success: function(data){
+            
+                console.log(data);
+                $('#modal-remove').modal('hide');
+                window.location.reload();
+    
+            }
+        });
+    });
+    // $(document).ready(function(){
+    //     $("#getRequest").click(function(){
+    //         // $.get('getRequest', function(data){
+    //         //     console.log(data);
+    //         //     $('#myModal').modal('show');
+    //         // });
+
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: 'getRequest',
+    //             success: function(data){
+    //                 console.log(data);
+    //                 $('#myModal').modal('show');
+    //             }
+    //         });
+    //     });
+    // });
+</script>
 @endsection
